@@ -1,0 +1,27 @@
+:host{
+    
+    .card{
+    border: 1px solid black;
+    width: 400px;
+   
+    text-align: center;
+    margin-left:500px;
+    margin-bottom: 10px;
+    }
+    .title{
+        font-size: large;
+
+    }
+    img{
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height:200px;
+    }
+}
+:host.is-first{
+    .card{
+    border: 2px solid black ;
+    }
+}
+

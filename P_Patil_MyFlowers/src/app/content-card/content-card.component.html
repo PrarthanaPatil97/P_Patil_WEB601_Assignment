@@ -1,5 +1,11 @@
-<span [innerHTML]="myList.getHtml(0)"></span>
-<span [innerHTML]="myList.getHtml(1)"></span>
-<span [innerHTML]="myList.getHtml(2)"></span>
-<span [innerHTML]="myList.getHtml(3)"></span>
 
+<div class="card">
+    <div class="id">ID: {{ flowerItem ? flowerItem.id : "" }}</div><br>
+    <div class="title">Title: {{ flowerItem ? flowerItem.title : "" }}</div><br>
+    <div><img [src]="flowerItem ? flowerItem.imgURL : ''"></div><br>
+    <div class="desc">{{ flowerItem ? flowerItem.description : "" }}</div><br>
+    
+    <div class="creator">Creator:{{ flowerItem ? flowerItem.creator : "" }}</div><br>
+    <!-- <div class="name">{{ flowerItem ? tourItem.name : "" }}</div> -->
+    
+    </div>
