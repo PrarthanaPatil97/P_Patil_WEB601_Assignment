@@ -6,6 +6,6 @@ import { Content } from './helper-files/content-interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  title = 'P_Patil_MyFlowers';
 
 }
