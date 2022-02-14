@@ -10,6 +10,10 @@ export class ContentListComponent implements OnInit {
 
   title = 'P_Patil_MyFlowers';
   flowerItem: Content[];
+  temp = false;
+  Available = "";
+  NotAvailable = "";
+;
 
   constructor(){
 
@@ -73,5 +77,26 @@ export class ContentListComponent implements OnInit {
      
     }
     
-  }
+    newPage(cardNameOnTheTypescriptSide: string): void {
+    
+   
+      this.flowerItem.forEach(f=> {
+        if (f.title == cardNameOnTheTypescriptSide ){
+          this.temp = true;
+        }
+      });
+      if(this.temp){
+        cardNameOnTheTypescriptSide = cardNameOnTheTypescriptSide+" flower type available in following list.";
+        this.Available = cardNameOnTheTypescriptSide;
+        this.NotAvailable = "";
+    
+      }else{
+        cardNameOnTheTypescriptSide = cardNameOnTheTypescriptSide+" flower type not available in  the following list.";
+        this.NotAvailable = cardNameOnTheTypescriptSide;
+        this.Available = "";
+      }
+      this.temp = false;
+      
+    }
+}
 
