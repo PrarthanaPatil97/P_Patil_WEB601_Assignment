@@ -11,16 +11,14 @@
 <h2>Spring Season</h2>
 <app-content-card *ngFor = "let item of (flowerItem | flower:'Spring'  ); index as i" 
 [flowerItem] = "item" [class.Spring] = "i+1">
-
 </app-content-card>
+
 <h2>Fall Season</h2>
 <app-content-card *ngFor = "let item of (flowerItem | flower:'Fall' ); index as i" 
 [flowerItem] = "item" [class.Fall]="i+1">
-
-
 </app-content-card>
+
 <h2>Flower without Type</h2>
 <app-content-card *ngFor = "let item of (flowerItem | flower ); index as i" 
 [flowerItem] = "item" >
-
 </app-content-card>

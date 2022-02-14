@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 
 import { ContentCardComponent } from './content-card/content-card.component';
 import { FlowerPipe } from './flower.pipe';
+import { ContentListComponent } from './content-list/content-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
   
     ContentCardComponent,
-       FlowerPipe
+       FlowerPipe,
+       ContentListComponent
   ],
   imports: [
     BrowserModule
