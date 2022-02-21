@@ -22,7 +22,7 @@ export class ContentListComponent implements OnInit {
       title: "Aconite",
       description: "Aconite flowers are also known as winter aconite.",
       creator: "Tubers or seeds",
-      imgURL: "https://www.flowerglossary.com/wp-content/uploads/2017/09/aconite.jpg",
+      imgURL: " ",
       tags:["Beautiful","Popular"]
     },{
       id: 1,

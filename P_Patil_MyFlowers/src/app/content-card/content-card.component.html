@@ -3,7 +3,8 @@
     <h3 class="title">
         {{ flowerItem?.title }}
     </h3>
-    <img (click)="imageClicked()" *ngIf="flowerItem?.imgURL" class="image" [src]="flowerItem?.imgURL">
+  
+     <img (click)="imageClicked()" *ngIf="flowerItem?.imgURL" class="image" [src]="flowerItem?.imgURL">
     <p>
         {{ flowerItem?.description }}
     </p>
@@ -11,12 +12,13 @@
         <div class="creator">
             {{ flowerItem?.creator}}
         </div>
-        <div *ngIf="flowerItem?.type" class="flowerItem?.type">
+        <div class="type" appHoverAffect="affect1" *ngIf="flowerItem?.type" class="flowerItem?.type">
             {{ flowerItem?.type }}
         </div>
-        <div class="tags" *ngIf="flowerItem?.tags">
-            <span class="tag" *ngFor="let tag of flowerItem?.tags">
+        <div class="tags"  *ngIf="flowerItem?.tags">
+            <span class="tag" appHoverAffect="affect2" *ngFor="let tag of flowerItem?.tags">
                 #{{ tag }}
             </span>
         </div>
+        
     </div>

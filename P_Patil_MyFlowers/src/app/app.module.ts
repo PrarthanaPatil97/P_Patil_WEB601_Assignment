@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { FlowerPipe } from './flower.pipe';
 import { ContentListComponent } from './content-list/content-list.component';
+import { DefaultImgPipe } from './default-img.pipe';
+import { HoverAffectDirective } from './hover-affect.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { ContentListComponent } from './content-list/content-list.component';
   
     ContentCardComponent,
        FlowerPipe,
-       ContentListComponent
+       ContentListComponent,
+       DefaultImgPipe,
+       HoverAffectDirective
   ],
   imports: [
     BrowserModule

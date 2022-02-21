@@ -6,10 +6,10 @@ import{Content} from '../helper-files/content-interface';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-  @Input() flowerItem?: Content;
+  @Input() flowerItem: Content;
 
   constructor() {
-    
+    this.flowerItem = { id: 0, title: '',description:'', creator: '', imgURL: '' };
   }
   
 
