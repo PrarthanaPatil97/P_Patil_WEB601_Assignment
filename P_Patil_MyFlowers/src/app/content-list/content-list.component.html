@@ -9,7 +9,7 @@
     <p class="orangetext" *ngIf="NotAvailable">{{ NotAvailable }}</p>
    
 </div>
-
+<app-create-content (newContentEvent)="addContentToList($event)"></app-create-content>
 <h2>Spring Season</h2>
 <app-content-card appHoverAffect="affect3" *ngFor = "let item of (flowerItem | flower:'Spring'  ); index as i" 
 [flowerItem] = "item" [class.Spring] = "i+1">

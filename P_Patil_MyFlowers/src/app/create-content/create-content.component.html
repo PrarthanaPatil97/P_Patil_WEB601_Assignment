@@ -1,0 +1,23 @@
+<div>
+    id: <input #id>
+</div>
+<div>
+    title: <input #title>
+</div>
+
+<div>
+    description: <input #description>
+</div>
+<div>
+    creator: <input #creator>
+</div>
+
+<div>
+    tags: <input #tags>
+</div>
+<div>
+    type: <input #type>
+</div>
+<div>
+    <button (click)="addContent(id.value, title.value, description.value, creator.value, tags.value,type.value)">Add Flower Item</button>
+</div>

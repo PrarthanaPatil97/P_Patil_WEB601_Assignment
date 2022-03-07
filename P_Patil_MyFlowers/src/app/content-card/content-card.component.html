@@ -5,6 +5,8 @@
     </h3>
   
      <img (click)="imageClicked()" *ngIf="flowerItem?.imgURL" class="image" [src]="flowerItem?.imgURL">
+     <img (click)="imageClicked()" *ngIf="!flowerItem?.imgURL" class="image"
+    src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1351,w_2400,x_0,y_1049/f_auto,q_auto,w_1100/v1618241852/shape/mentalfloss/94532-gettyimages-1199037273.jpg">
     <p>
         {{ flowerItem?.description }}
     </p>

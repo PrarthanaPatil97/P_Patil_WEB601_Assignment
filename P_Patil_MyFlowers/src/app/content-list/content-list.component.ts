@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-
+import { CreateContentComponent } from '../create-content/create-content.component';
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
@@ -22,14 +22,14 @@ export class ContentListComponent implements OnInit {
       title: "Aconite",
       description: "Aconite flowers are also known as winter aconite.",
       creator: "Tubers or seeds",
-      imgURL: " ",
+      imgURL: "https://www.flowerglossary.com/wp-content/uploads/2017/09/aconite.jpg",
       tags:["Beautiful","Popular"]
     },{
       id: 1,
       title: "Lily",
       description: "Lilies are a highly recognized flower that has bright colors and a strong scent.",
       creator: "Tubers or seeds",
-      imgURL: "https://www.flowerglossary.com/wp-content/uploads/2017/09/lily-flower.jpg.webp",
+      imgURL: "",
       type: "Spring"
     },{
       id: 2,
@@ -77,6 +77,7 @@ export class ContentListComponent implements OnInit {
      
     }
     
+    
     newPage(cardNameOnTheTypescriptSide: string): void {
     
    
@@ -98,5 +99,61 @@ export class ContentListComponent implements OnInit {
       this.temp = false;
       
     }
+    
+    addContentToList(newContentFromChild: Content) {
+      console.log("old array values ", this.flowerItem);
+  
+      this.flowerItem.push(newContentFromChild);
+  
+     
+      this.flowerItem = [...this.flowerItem]; 
+  
+      console.log("Did the item get added? ", newContentFromChild);
+      console.log("New Flower Added sucesfully",newContentFromChild.title);
+      console.log("new array values ", this.flowerItem);
+    
+  }
 }
+ let ourPromise = new Promise((success, fail) => {
+      let testPass = false;
+      if (testPass) {
+        success("Success was achieved!");
+      }
+      else {
+        fail("Failure :(");
+      }
+    });
+
+
+    ourPromise
+      .then(function (successMessage) {
+        console.log("The promise succeeded and came back with the following message: ", successMessage);
+      })
+      .catch(function (failureMessage) {
+        console.log("The promise failed and came back with the following message: ", failureMessage);
+      });
+
+    
+
+    let getStuff = async function () {
+      return "stuff";
+    }
+    // function async getStuffUsingOldFunctionDefinition(): string{
+    //   return "stuff";
+    // }
+    let getTheSameStuff = async function () {
+      return "Similar stuff";
+    }
+
+    //different way to represent functions
+    let getAllTheStuff = async () => {
+      const theFirstStuff = getStuff();
+      const theSecondStuff = getTheSameStuff();
+      //returns both promises
+      return await Promise.all([theFirstStuff, theSecondStuff]);
+    }
+    getAllTheStuff().then((value) => {
+      console.log("First value from the getAllTheStuff method: ", value[0]);
+      console.log("Second value from the getAllTheStuff method: ", value[1]);
+    });
 
