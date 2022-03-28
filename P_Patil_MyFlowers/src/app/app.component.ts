@@ -7,17 +7,15 @@ import { MessageService } from './services/message.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'P_Patil_MyFlowers';
-  temp = false;
-  flowerItem: Content[];
+ 
   
-  constructor(public msgService: MessageService){
-    this.flowerItem =[];
+  constructor(){
+    
     
 }
 
 
-newPage(cardNameOnTheTypescriptSide: string): void {
+/* newPage(cardNameOnTheTypescriptSide: string): void {
     
    
   this.flowerItem.forEach(f=> {
@@ -26,5 +24,5 @@ newPage(cardNameOnTheTypescriptSide: string): void {
     }
   });
 
-}
+} */
 }

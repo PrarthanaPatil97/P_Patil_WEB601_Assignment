@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { flowerItem } from '../helper-files/contentDb';
 import { FlowerServiceService } from '../services/flower-service.service';
-
+import { ModifyContentComponentComponent } from '../modify-content-component/modify-content-component.component';
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
@@ -21,16 +21,61 @@ export class ContentListComponent implements OnInit {
 
     this.flowerItem =[];
     
+
+let ourPromise = new Promise((success, fail) => {
+  let testPass = false;
+  if (testPass) {
+    success("Success was achieved!");
+  }
+  else {
+    fail("Failure :(");
+  }
+});
+
+console.log("First console log");
+
+ourPromise
+  .then(function (successMessage) {
+    console.log("The promise succeeded and came back with the following message: ", successMessage);
+    })
+  .catch(function (failureMessage) {
+    console.log("The promise failed and came back with the following message: ", failureMessage);
+  });
+
+console.log("Fourth console log");
+
+let getStuff = async function () {
+  return "stuff";
+}
+
+let getTheSameStuff = async function () {
+  return "Similar stuff";
 }
 
 
+let getAllTheStuff = async () => {
+  const theFirstStuff = getStuff();
+  const theSecondStuff = getTheSameStuff();
+  
+  return await Promise.all([theFirstStuff, theSecondStuff]);
+}
+getAllTheStuff().then((value) => {
+  console.log("First value from the getAllTheStuff method: ", value[0]);
+  console.log("Second value from the getAllTheStuff method: ", value[1]);
+});
+
+}
+
+
+
     ngOnInit(): void {
-      this.flowerItem = this.flowerService.getFlowerContent();
-      this.singleFlower = this.flowerService.getSingleFlower(5);
-      
-    console.log(this.singleFlower);
+      this.getFlowerFromServer();
     }
     
+    getFlowerFromServer(): void{
+      this.flowerService.getContent().subscribe(flowerArray => this.flowerItem = flowerArray);
+    }
+
     newPage(cardNameOnTheTypescriptSide: string): void {
     
    
@@ -52,5 +97,33 @@ export class ContentListComponent implements OnInit {
       this.temp = false;
       
     }
-}
+    /* addFlowerToList(newFlower : Content){
+      
+    
+        this.flowerItem.push(newFlower);
+        this.flowerItem = Object.assign([], this.flowerItem);
+        this.flowerItem = [...this.flowerItem];
+        console.log("New Flower Item added successfully.")
+    } */
+      updateFlowerInList(contentItem: Content): void {
+    
+    
+        this.flowerService.updateContent(contentItem).subscribe(() => {
+          console.log("Content updated successfully");
+          this.getFlowerFromServer();
+        });
+      }
+    
+      addFlowerToList(newFlowerFromChild: Content): void {
+        this.flowerService.addContent(newFlowerFromChild).subscribe(newContentFromServer => {
+          console.log("New content from server: ", newContentFromServer);
+    
+          this.flowerItem.push(newContentFromServer);
+          this.flowerItem = [...this.flowerItem]; // using the spread operator
+    
+        });
+      }
+    
+    }
+
 

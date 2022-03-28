@@ -1,0 +1,15 @@
+:host > div.message-block {
+    position: fixed;
+    bottom: 30px;
+    right: 32px;
+    border: 2px solid black;
+    padding: 16px;
+    background-color: gray;
+    border-radius: 13px;
+  }
+  :host > div.message-block h2 {
+    margin-top: 0;
+  }
+  :host > div.message-block div {
+    margin-top: 16px;
+  }

@@ -8,6 +8,8 @@ import { FlowerPipe } from './flower.pipe';
 import { ContentListComponent } from './content-list/content-list.component';
 import { DefaultImgPipe } from './default-img.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
+import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HoverAffectDirective } from './hover-affect.directive';
        FlowerPipe,
        ContentListComponent,
        DefaultImgPipe,
-       HoverAffectDirective
+       HoverAffectDirective,
+       ModifyContentComponentComponent,
+       MessagesComponent
   ],
   imports: [
     BrowserModule
