@@ -1,6 +1,7 @@
-import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { Content } from '../helper-files/content-interface';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { stringify } from 'querystring';
+
+
 
 @Component({
   selector: 'app-modify-content-component',
@@ -9,16 +10,15 @@ import { stringify } from 'querystring';
 })
 export class ModifyContentComponentComponent implements OnInit {
 
-  @Output() newFlowerAdd: EventEmitter<Content> = new EventEmitter<Content>();
-  @Output() updateFlowerAdd: EventEmitter<Content> = new EventEmitter<Content>();
-  newFlower?: Content;
+  @Output() newContentAdd: EventEmitter<Content> = new EventEmitter<Content>();
+  @Output() updateContentAdd: EventEmitter<Content> = new EventEmitter<Content>();
+  newContent?: Content;
 
-  @ViewChild('id')
-  inputId!: { nativeElement: { value: string; }; };
   @ViewChild('title')
   inputTitle!: { nativeElement: { value: string; }; };
 
- 
+  @ViewChild('id')
+  inputId!: { nativeElement: { value: string; }; };
   
   @ViewChild('description')
   inputDesc!: { nativeElement: { value: string; }; };
@@ -41,17 +41,17 @@ export class ModifyContentComponentComponent implements OnInit {
   ngOnInit(): void 
   {
   }
-  addFlower(title:string,imgURL:string,description:string,creator:string,type:string,tags:string): void{
-    this.newFlower = {
+  addContent(title:string,imgURL:string,description:string,creator:string,type:string,tags:string): void{
+    this.newContent = {
       //id:parseInt(id),
-      title: title,
+      title:title,
       imgURL: imgURL,
       description: description,
       creator: creator,
       type : type,
       tags : tags.split(",")
     };
-    this.newFlowerAdd.emit(this.newFlower);
+    this.newContentAdd.emit(this.newContent);
     this.inputTitle.nativeElement.value = '';
     this.inputId.nativeElement.value = '';
     this.inputDesc.nativeElement.value = '';
@@ -60,8 +60,8 @@ export class ModifyContentComponentComponent implements OnInit {
     this.inputTag.nativeElement.value = '';
     this.inputImg.nativeElement.value = '';
   }
-  updateTour(id:string, title:string,imgURL:string,description:string,creator:string,type:string,tags:string): void{
-    this.newFlower = {
+  updateContent(id:string, title:string,imgURL:string,description:string,creator:string,type:string,tags:string): void{
+    this.newContent = {
       id:parseInt(id),
       title:title,
       imgURL: imgURL,
@@ -70,7 +70,7 @@ export class ModifyContentComponentComponent implements OnInit {
       type : type,
       tags : tags.split(",")
     };
-    this.updateFlowerAdd.emit(this.newFlower);
+    this.updateContentAdd.emit(this.newContent);
     this.inputTitle.nativeElement.value = '';
     this.inputId.nativeElement.value = '';
     this.inputDesc.nativeElement.value = '';

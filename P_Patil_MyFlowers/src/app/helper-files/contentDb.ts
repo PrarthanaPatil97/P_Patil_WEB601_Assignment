@@ -3,7 +3,7 @@ import { Content } from "./content-interface";
 export const flowerItem: Content[] =[
     {
 id: 0,
-title: "Aconite",
+title: "Acon/ite",
 description: "Aconite flowers are also known as winter aconite.",
 creator: "Tubers or seeds",
 imgURL: "https://m.media-amazon.com/images/I/615Aqym222L._AC_SX679_.jpg ",

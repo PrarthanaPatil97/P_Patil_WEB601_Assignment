@@ -10,6 +10,9 @@ import { DefaultImgPipe } from './default-img.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
 import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
 import { MessagesComponent } from './messages/messages.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,13 @@ import { MessagesComponent } from './messages/messages.component';
        MessagesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 500
+    }),
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

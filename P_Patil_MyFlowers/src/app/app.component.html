@@ -1,16 +1,5 @@
 <app-content-list></app-content-list>
 
-<div *ngIf="msgService.messages.length">
-    <h2>Message</h2>
-    <div *ngFor="let message of msgService.messages">
-        {{message}}
-    </div>
-</div>
-<div>
-      <input #titleValue>
-      <button type="button" class="clear"
-      (click)="msgService.messages">Show Flower</button>
-   
-</div>
+
 
 <app-messages></app-messages> 

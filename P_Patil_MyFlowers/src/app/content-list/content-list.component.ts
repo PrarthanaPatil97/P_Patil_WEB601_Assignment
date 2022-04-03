@@ -69,14 +69,14 @@ getAllTheStuff().then((value) => {
 
 
     ngOnInit(): void {
-      this.getFlowerFromServer();
+      this.getContentFromServer();
     }
     
-    getFlowerFromServer(): void{
+    getContentFromServer(): void{
       this.flowerService.getContent().subscribe(flowerArray => this.flowerItem = flowerArray);
     }
 
-    newPage(cardNameOnTheTypescriptSide: string): void {
+    updatePage(cardNameOnTheTypescriptSide: string): void {
     
    
       this.flowerItem.forEach(f=> {
@@ -105,19 +105,20 @@ getAllTheStuff().then((value) => {
         this.flowerItem = [...this.flowerItem];
         console.log("New Flower Item added successfully.")
     } */
-      updateFlowerInList(contentItem: Content): void {
+      updateContentInList(contentItem: Content): void {
     
     
         this.flowerService.updateContent(contentItem).subscribe(() => {
           console.log("Content updated successfully");
-          this.getFlowerFromServer();
+          this.getContentFromServer();
         });
       }
     
-      addFlowerToList(newFlowerFromChild: Content): void {
-        this.flowerService.addContent(newFlowerFromChild).subscribe(newContentFromServer => {
-          console.log("New content from server: ", newContentFromServer);
-    
+      addContentToList(newContentFromChild: Content): void {
+        this.flowerService.addContent(newContentFromChild).subscribe(newContentFromServer =>{
+          console.log("New  Content from server:",newContentFromServer);
+        
+
           this.flowerItem.push(newContentFromServer);
           this.flowerItem = [...this.flowerItem]; // using the spread operator
     

@@ -1,1 +1,33 @@
-<p>modify-content-component works!</p>
+
+<mat-form-field>
+    <mat-label>ID (ONLY FOR UDPATING)</mat-label>
+    <input matInput placeholder="0" #id>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Jasmine" #title>
+</mat-form-field>
+<mat-form-field>
+
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="This is popular Flower" #description>
+</mat-form-field>
+
+<div>
+    creator: <input #creator type="text" placeholder="enter creator required" required>
+</div>
+
+<mat-form-field>
+    <mat-label>Image URL</mat-label>
+    <input matInput placeholder="" #imageUrl>
+</mat-form-field>
+<div>
+    type: <input #type placeholder="Fall" value="Fall"  required>
+</div>
+<div>
+    tags: <input #tags placeholder="not required (tag separate by ,)">
+</div>
+<div>
+    <button mat-raised-button color="primary" type="submit" (click)="addContent(title.value, imageUrl.value, description.value, creator.value ,type.value , tags.value)">Add Flower</button>
+    <button mat-raised-button color="accent" type="submit" (click)="updateContent(id.value, title.value, imageUrl.value, description.value, creator.value ,type.value , tags.value)">Update Flower</button>
+</div>
