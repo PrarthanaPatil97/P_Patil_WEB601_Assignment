@@ -4,14 +4,14 @@
 
 <app-modify-content-component (newContentAdd)="addContentToList($event)"  (updateContentAdd)="updateContentInList($event)"></app-modify-content-component>
 
-<div>
+<mat-form-field>
     
-    <input #titleValue>
-    <button (click)="updatePage(titleValue.value)">Search</button>
+    <input matInput placeholder="titleValue" #titleValue/>
+    <button mat-raised-button  color="primary" (click)="updatePage(titleValue.value)">Search</button>
     <p class="bluetext" *ngIf="Available">{{ Available }}</p>
     <p class="orangetext" *ngIf="NotAvailable">{{ NotAvailable }}</p>
    
-</div>
+</mat-form-field>
 
 <h2>Spring Season</h2>
 <app-content-card appHoverAffect="affect3" *ngFor = "let item of (flowerItem | flower:'Spring'  ); index as i" 
