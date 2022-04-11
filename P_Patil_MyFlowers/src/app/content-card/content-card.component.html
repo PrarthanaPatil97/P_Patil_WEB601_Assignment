@@ -1,25 +1,31 @@
 
 
-    <h3 class="title">
+  <mat-card *ngIf="flowerItem">
+    <mat-card-title>
         {{ flowerItem?.title }}
-    </h3>
+    </mat-card-title>
+
   
-     <img (click)="imageClicked()" *ngIf="flowerItem?.imgURL" class="image" [src]="flowerItem?.imgURL">
-     <img (click)="imageClicked()" *ngIf="!flowerItem?.imgURL" class="image"  src="https://m.media-amazon.com/images/I/615Aqym222L._AC_SX679_.jpg">
-    <p>
-        {{ flowerItem?.description }}
-    </p>
-    <div class="meta-data">
-        <div class="creator">
-            {{ flowerItem?.creator}}
-        </div>
-        <div class="type" appHoverAffect="affect1" *ngIf="flowerItem?.type" class="flowerItem?.type">
-            {{ flowerItem?.type }}
-        </div>
-        <div class="tags"  *ngIf="flowerItem?.tags">
-            <span class="tag" appHoverAffect="affect2" *ngFor="let tag of flowerItem?.tags">
-                #{{ tag }}
-            </span>
-        </div>
-        
-    </div>
+     <img mat-card-image (click)="imageClicked()" *ngIf="flowerItem?.imgURL" class="image" [src]="flowerItem?.imgURL">
+     <img mat-card-image (click)="imageClicked()" *ngIf="!flowerItem?.imgURL" class="image"  src="https://m.media-amazon.com/images/I/615Aqym222L._AC_SX679_.jpg">
+     <mat-card-content>
+                        <p>
+                        {{ flowerItem?.description }}
+                        </p>
+                    
+                        <mat-card-subtitle class="creator">
+                            {{ flowerItem?.creator}}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle class="type" appHoverAffect="affect1" *ngIf="flowerItem?.type" class="flowerItem?.type">
+                            {{ flowerItem?.type }}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle class="tags"  *ngIf="flowerItem?.tags">
+                            <span class="tag" appHoverAffect="affect2" *ngFor="let tag of flowerItem?.tags">
+                                #{{ tag }}
+                            </span>
+                        </mat-card-subtitle>
+        </mat-card-content>
+        <a [routerLink]="['/content', flowerItem?.id ?? 0]" routerLinkActive="active">
+            Content Details
+          </a>
+</mat-card>

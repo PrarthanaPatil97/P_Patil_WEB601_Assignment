@@ -1,0 +1,19 @@
+<div *ngIf="flowerItem" class="Content-{{flowerItem?.title}}">
+    <div class="title">{{ flowerItem.title }}</div>
+    <div class="type">{{ flowerItem.type }}</div>
+    <div class="body">{{ flowerItem.description }}</div>
+    <div><img [src]="flowerItem.imgURL"></div>
+    <div [ngSwitch]='flowerItem.type'>
+        <span *ngSwitchCase='"Fall"'>Fall Season Flower</span>
+        <span *ngSwitchCase='"Spring"'>Spring Season Flower</span>
+        <span *ngSwitchDefault>All Season</span>
+    </div>
+  
+    <div class="tags">
+        <span  class="tag" *ngFor="let tag of flowerItem.tags"> {{ tag }}</span>
+    </div>
+ 
+  <div *ngIf="!flowerItem">
+    No flower type at that id exists. <a routerLink="content">Go back to the list</a>
+  </div>
+</div>

@@ -1,4 +1,11 @@
-
+:host {
+    display: block;
+    width: 500px;
+    margin: 16px auto;
+    border: 1px solid #000;
+    border-radius: 16px;
+    padding: 24px;
+}
 :host{
     *{
         text-align: center;

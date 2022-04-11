@@ -13,6 +13,7 @@ export class ContentListComponent implements OnInit {
   title = 'P_Patil_MyFlowers';
   flowerItem: Content[];
   temp = false;
+  
   Available = "";
   NotAvailable = "";
   singleFlower: Content | undefined;

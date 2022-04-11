@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import{Content} from '../helper-files/content-interface';
+import { ModifyContentComponentComponent } from '../modify-content-component/modify-content-component.component';
+
 @Component({
   selector: 'app-content-card',
   templateUrl: './content-card.component.html',

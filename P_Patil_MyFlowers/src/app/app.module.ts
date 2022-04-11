@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-
 import { ContentCardComponent } from './content-card/content-card.component';
 import { FlowerPipe } from './flower.pipe';
 import { ContentListComponent } from './content-list/content-list.component';
@@ -16,6 +16,11 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { ContentDetailsComponent } from './content-details/content-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
        DefaultImgPipe,
        HoverAffectDirective,
        ModifyContentComponentComponent,
-       MessagesComponent
+       MessagesComponent,
+       ContentDetailsComponent,
+       PageNotFoundComponent,
+       HomeComponent,
+      
   ],
   imports: [
     BrowserModule,
@@ -38,6 +47,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     MatButtonModule,
     MatInputModule,
+    MatCardModule,
+    AppRoutingModule,
+
     BrowserAnimationsModule
   ],
   providers: [],

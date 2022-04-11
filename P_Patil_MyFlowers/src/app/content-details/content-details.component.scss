@@ -1,0 +1,30 @@
+:host{
+    display: block;
+    width: 200px;
+    margin: 16px auto;
+    border: 1px solid #000;
+    border-radius: 16px;
+    padding: 24px;
+
+    .title{
+        color: green;
+    }
+
+    .type{
+        color: #ff0000;
+    }
+    img{
+        width: 200px;
+    }
+    
+    .tag{
+        display: inline-block;
+        margin: 8px 16px;
+        padding: 8px;
+        border-radius: 20px;
+        border: 1px dotted #000;
+    }
+}
+:host.is-last{
+    background-color:#00ff00;
+}

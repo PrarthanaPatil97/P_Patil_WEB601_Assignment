@@ -78,6 +78,7 @@ export class ModifyContentComponentComponent implements OnInit {
     
     this.inputTag.nativeElement.value = '';
     this.inputImg.nativeElement.value = '';
+    
   }
 
 }

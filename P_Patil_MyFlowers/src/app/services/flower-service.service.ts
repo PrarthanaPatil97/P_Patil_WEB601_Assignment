@@ -27,7 +27,10 @@ export class FlowerServiceService {
     this.msgService.add('New Item Added');
     return this.http.post<Content>("api/content",flowerItem,this.httpOptons);
   }
-
+  getContentItem(id: number): Observable<Content>{
+    console.log("Retrieving OBSERVABLE content item");
+    return this.http.get<Content>("api/content/" + id);
+  }
   updateContent(flowerItem : Content): Observable<any>{
     this.msgService.add('Item is Updated.') ;
     return this.http.put("api/content", flowerItem, this.httpOptons);
