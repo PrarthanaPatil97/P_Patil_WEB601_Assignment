@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ApplicationRef, Component, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
+import { concat, first, interval } from 'rxjs';
 import { Content } from './helper-files/content-interface';
+import { LogUpdateService } from './log-update.service';
 import { FlowerServiceService } from './services/flower-service.service';
 import { MessageService } from './services/message.service';
 
@@ -12,7 +15,8 @@ export class AppComponent implements OnInit{
 
  title:string;
  birthday: Date;
-  constructor(){
+  log: any;
+  constructor(private logService: LogUpdateService, private appRef: ApplicationRef, private updates: SwUpdate){
     
     this.birthday = new Date();
 
@@ -20,7 +24,14 @@ export class AppComponent implements OnInit{
     this.title = 'Header 1';
 }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.log.init();
+    const appIsStable$ = this.appRef.isStable.pipe(
+      first(isStable => isStable === true));
+      const everyHour$ = interval(1 * 60 * 60 * 1000);
+      const everyHourOnceAppIsStable$ =
+      concat(appIsStable$, everyHour$);
+      everyHourOnceAppIsStable$.subscribe(
+      () => this.updates.checkForUpdate());
   }
 
 
